@@ -1,0 +1,9 @@
+profile=janestreet
+
+# custom settings
+margin=64
+parens-tuple=always
+parens-tuple-patterns=always
+let-binding-spacing=compact
+
+version=0.27.0
