@@ -20,5 +20,11 @@ jobs:
         with:
           ocaml-compiler: 5.3
 
-      - run: opam install . --deps-only --with-test
-      - run: opam exec -- dune build @install @doc
+      - run: opam install . --deps-only
+      - run: opam install odoc
+      - run: opam exec -- dune build @doc
+
+      - name: Deploy GitHub Pages
+        uses: actions/deploy-pages@v4.0.5
+        with:
+          folder: _build/default/_doc/_html/
