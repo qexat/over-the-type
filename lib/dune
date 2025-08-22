@@ -1,3 +1,5 @@
 (library
  (name over_the_type)
  (public_name over-the-type))
+
+(include_subdirs qualified)
