@@ -46,9 +46,9 @@ module Induction : sig
   (** [Induction] is a proof of induction on equality, which
       also happens to match Leibniz's definition of equality. *)
 
-  module type ARGS = sig
-    (** [ARGS] regroups all the required arguments for the
-        induction. *)
+  module type HYPOTHESES = sig
+    (** [HYPOTHESES] regroups all the required arguments for
+        the induction. *)
 
     (** [ty] is {i some} type. It really doesn't matter which
         one.
@@ -85,20 +85,18 @@ module Induction : sig
     (** [a] is another discriminant for [ty]. *)
     type a
 
-    (** [eq_x_a] is a proof that [x = a].
+    (** [x_eq_a] is a proof that [x = a].
     
         [a] is also the rain! *)
-    val eq_x_a : (x, a) t
+    val x_eq_a : (x, a) t
   end
 
-  module type TYPE = sig
-    (** [TYPE] represents the conclusion of the induction
-        principle applied to some instance of [ARGS]. *)
+  module type CONCLUSION = sig
+    (** [CONCLUSION] represents the conclusion of the induction
+        principle applied to some instance of [HYPOTHESES]. *)
 
-    (** [Args] is all the hypotheses needed. *)
-    module Args : ARGS
-
-    open Args
+    module Hypotheses : HYPOTHESES
+    open Hypotheses
 
     (** [pa] is the proof that the proposition [p] also holds
         when applied to [a].
@@ -107,9 +105,9 @@ module Induction : sig
     val pa : a ty p
   end
 
-  (** [Make Args] builds the conclusion of the induction based
-      on the hypotheses [Args]. *)
-  module Make : (Args : ARGS) -> TYPE
+  (** [Make Hypotheses] builds the conclusion of the induction
+      based on the [Hypotheses]. *)
+  module Make : (Hypotheses : HYPOTHESES) -> CONCLUSION
   (* (_ : ARGS) looks ugly *)
   [@@warning "-67"]
 
@@ -121,5 +119,5 @@ module Induction : sig
       We know that the rain makes the floor wet, so every
       weather that is the same as the rain also makes the floor
       wet. *)
-  val induction : (module ARGS) -> (module TYPE)
+  val induction : (module HYPOTHESES) -> (module CONCLUSION)
 end
