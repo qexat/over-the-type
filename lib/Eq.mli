@@ -81,14 +81,6 @@ module Induction : sig
 
         Indeed, rain makes the floor wet. *)
     val px : x ty p
-
-    (** [a] is another discriminant for [ty]. *)
-    type a
-
-    (** [x_eq_a] is a proof that [x = a].
-    
-        [a] is also the rain! *)
-    val x_eq_a : (x, a) t
   end
 
   module type CONCLUSION = sig
@@ -98,16 +90,19 @@ module Induction : sig
     module Hypotheses : HYPOTHESES
     open Hypotheses
 
-    (** [pa] is the proof that the proposition [p] also holds
-        when applied to [a].
+    (** [pa] is the proof that given a value [a] of type [ty]
+        and a proof that [x = a], the proposition [p] also
+        holds when applied to [a].
         
-        Therefore, the weather [a] makes the floor wet. *)
-    val pa : a ty p
+        Therefore, any weather [a] that is the rain makes the
+        floor wet. *)
+    val pa : 'a. (x, 'a) t -> 'a ty p
   end
 
   (** [Make Hypotheses] builds the conclusion of the induction
       based on the [Hypotheses]. *)
-  module Make : (Hypotheses : HYPOTHESES) -> CONCLUSION
+  module Make : (Hypotheses : HYPOTHESES) ->
+    CONCLUSION with module Hypotheses = Hypotheses
   (* (_ : ARGS) looks ugly *)
   [@@warning "-67"]
 

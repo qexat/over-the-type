@@ -16,25 +16,21 @@ module Induction = struct
     type 'a p = 'a _p constraint 'a = 'b ty
 
     val px : x ty p
-
-    type a
-
-    val x_eq_a : (x, a) t
   end
 
   module type CONCLUSION = sig
     module Hypotheses : HYPOTHESES
     open Hypotheses
 
-    val pa : a ty p
+    val pa : 'a. (x, 'a) t -> 'a ty p
   end
 
-  module Make (Hypotheses : HYPOTHESES) : CONCLUSION = struct
+  module Make (Hypotheses : HYPOTHESES) :
+    CONCLUSION with module Hypotheses = Hypotheses = struct
     module Hypotheses = Hypotheses
     open Hypotheses
 
-    let pa : a ty p =
-      match x_eq_a with
+    let pa : type a. (x, a) t -> a ty p = function
       | Refl _ -> px
   end
 
