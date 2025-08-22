@@ -3,7 +3,7 @@
 (** [Unit] is a type with a single inhabitant: [()], which is
     also called [tt]. *)
 
-(* We are intentially replacing the built-in [unit] type. *)
+(* We are intentionally replacing the built-in [unit] type. *)
 [@@@warning "-65"]
 
 (** This [tt] type is used as a discriminant for the [Unit]
