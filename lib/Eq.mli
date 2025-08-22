@@ -1,6 +1,6 @@
-(** {1 Equality}
+(** {1 Equality} *)
 
-[Eq] represents equality, following the definition of
+(** [Eq] represents equality, following the definition of
 Martin-Löf's identity type. *)
 
 (* Note: the types of inner modules are called [ty] to avoid
