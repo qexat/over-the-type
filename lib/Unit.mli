@@ -16,6 +16,10 @@ type _ t = () : tt t
 (** [tt] is the sole member of the [Unit] type. *)
 val tt : tt t
 
+(** {2 Properties} *)
+
+(** {3 Uniqueness} *)
+
 (** [uniqueness] states that if we have a value of type [Unit],
     then it must be [()]. *)
 val uniqueness : 'a. 'a t -> ('a t, tt t) Eq.t
