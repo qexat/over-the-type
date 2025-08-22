@@ -17,4 +17,15 @@ let symmetry : type a b. (a, b) t -> (b, a) t = function
 let transitivity : type a b c. (a, b) t -> (b, c) t -> (a, c) t =
   fun a_and_b b_and_c -> both (left a_and_b) (right b_and_c)
 
+let identity_left : type b. (True.t, b) t -> b = function
+  | Conjunction (I, b) -> b
+
+let identity_right : type a. (a, True.t) t -> a = function
+  | Conjunction (a, I) -> a
+
+let associativity
+  : type a b c. ((a, b) t, c) t -> (a, (b, c) t) t
+  = function
+  | Conjunction (Conjunction (a, b), c) -> both a (both b c)
+
 let commutativity = symmetry

@@ -51,6 +51,24 @@ val transitivity
 
 (** {3 As a logical operator} *)
 
+(** {4 Identity} *)
+
+(** [identity_left] states that we have [⊤ ∧ b], then we can
+    conclude [b]. *)
+val identity_left : 'b. (True.t, 'b) t -> 'b
+
+(** [identity_right] states that if we have [a ∧ ⊤], then we can
+    conclude [a]. *)
+val identity_right : 'a. ('a, True.t) t -> 'a
+
+(** {4 Associativity} *)
+
+(** [associativity] states that if we have [(a ∧ b) ∧ c], then
+    we can conclude [a ∧ (b ∧ c)]. *)
+val associativity
+  : 'a 'b 'c.
+  (('a, 'b) t, 'c) t -> ('a, ('b, 'c) t) t
+
 (** {4 Commutativity} *)
 
 (** [commutativity] is the same as {!val-symmetry}. *)
