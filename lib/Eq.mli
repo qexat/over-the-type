@@ -22,20 +22,20 @@ type (_, _) t = Refl : 'a. 'a -> ('a, 'a) t
 
 (** {4 Reflexivity} *)
 
-(** [reflexivity a] states that if we have [a], then we have
-    [a = a]. *)
+(** [reflexivity a] states that if we have [a], then we can
+    conclude [a = a]. *)
 val reflexivity : 'a. 'a -> ('a, 'a) t
 
 (** {4 Symmetry} *)
 
 (** [symmetry eq_a_b] states that if we have [a = b], then we
-    have [b = a]. *)
+    can conclude [b = a]. *)
 val symmetry : 'a 'b. ('a, 'b) t -> ('b, 'a) t
 
 (** {4 Transitivity} *)
 
 (** [transitivity eq_a_b eq_b_c] states that if we have [a = b]
-    and [b = c], then we have [a = c]. *)
+    and [b = c], then we can conclude [a = c]. *)
 val transitivity
   : 'a 'b 'c.
   ('a, 'b) t -> ('b, 'c) t -> ('a, 'c) t
