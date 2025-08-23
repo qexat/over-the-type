@@ -11,6 +11,7 @@ typed programming languages and proof assistants.
 {2 Datatypes}
 
 - {{!Over_the_type.Bool}[Bool]}
+- {{!Over_the_type.Nat}[Nat]}
 - {{!Over_the_type.Unit}[Unit]}
 
 {2 Logic}
