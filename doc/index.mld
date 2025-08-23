@@ -12,7 +12,7 @@ typed programming languages and proof assistants.
 - {{!Over_the_type.True}[True]}
 - {{!Over_the_type.Unit}[Unit]}
 - {{!Over_the_type.Bool}[Bool]}
-- {{!Over_the_type.Negation}[Negation]}
+- {{!Over_the_type.Not}[Not]}
 - {{!Over_the_type.And}[And]}
 - {{!Over_the_type.Or}[Or]}
 - {{!Over_the_type.Eq}[Eq]}

@@ -6,7 +6,7 @@
     ambiguities. *)
 
 (** [t] is the nonequality type. *)
-type ('a, 'b) t = ('a, 'b) Eq.t Negation.t
+type ('a, 'b) t = ('a, 'b) Eq.t Not.t
 
 (** {2 Properties} *)
 

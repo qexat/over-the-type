@@ -1,8 +1,8 @@
-(** {1 Negation}
+(** {1 Not}
 
-[Negation] represents the logical opposite of a type. *)
+[Not] represents the logical opposite of a type. *)
 
-(** [t] is the negation type.
+(** [t] is the propositional negation type.
     Negating a type is equivalent to saying that it implies
     [False]. *)
 type 'a t = 'a -> False.t
@@ -18,8 +18,8 @@ type 'a t = 'a -> False.t
     it is not raining. *)
 val reciprocal : 'a 'b. ('a -> 'b) -> 'b t -> 'a t
 
-(** [intro_double_negation a] states that if we have [a], then
+(** [intro_double_not a] states that if we have [a], then
     we can conclude [¬¬a] (read: not not [a]). *)
-val intro_double_negation : 'a. 'a -> 'a t t
+val intro_double_not : 'a. 'a -> 'a t t
 
 val ( ~~ ) : 'a. 'a -> 'a t t
