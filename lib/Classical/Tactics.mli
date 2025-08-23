@@ -1,4 +1,4 @@
-(** {1 Tactic} *)
+(** {1 Tactics} *)
 
 (** This module contains several tactics for classical logic. *)
 

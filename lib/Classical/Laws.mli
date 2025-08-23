@@ -1,4 +1,4 @@
-(** {1 Law} *)
+(** {1 Laws} *)
 
 (** Laws of classical logic. *)
 

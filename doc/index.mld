@@ -1,9 +1,7 @@
 {0 Over The Type}
 
-Over The Type explores the confines of OCaml's powerful
-type system with a logician mind influenced by dependently-
-typed programming languages and proof assistants.
-    
+Over The Type explores the confines of OCaml's powerful type system with a logician mind influenced by dependently-typed programming languages and proof assistants.
+
 {b It is a work in progress so expect more soon!}
 
 {1 Modules}
@@ -26,5 +24,5 @@ typed programming languages and proof assistants.
 
 {3 Classical}
 
-- {{!Over_the_type.Classical.Tactic}[Tactic]}
-- {{!Over_the_type.Classical.Law}[Law]}
+- {{!Over_the_type.Classical.Tactics}[Tactics]}
+- {{!Over_the_type.Classical.Laws}[Laws]}
