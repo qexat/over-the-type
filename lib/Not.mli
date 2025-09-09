@@ -23,3 +23,7 @@ val reciprocal : 'a 'b. ('a -> 'b) -> 'b t -> 'a t
 val intro_double_not : 'a. 'a -> 'a t t
 
 val ( ~~ ) : 'a. 'a -> 'a t t
+
+(** [elim_double_not a] states that if we know that the
+    negation of [a] is false, then we can conclude [a]. *)
+val elim_double_not : 'a. 'a t t -> 'a
