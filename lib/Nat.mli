@@ -67,7 +67,7 @@ val ten : ten
 
 (** {3 Evenness and oddness} *)
 
-(** This section defines two propisitions, [Even] and [Odd],
+(** This section defines two propositions, [Even] and [Odd],
     that state whether a number is divisible by 2 or not,
     respectively. *)
 
