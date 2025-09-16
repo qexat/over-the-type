@@ -29,7 +29,7 @@ val right : 'a 'b. 'b -> ('a, 'b) t
 (** {4 Reflexivity} *)
 
 (** [reflexivity] states that if we have [a], then we can
-    conclude [a ∧ a]. *)
+    conclude [a ∨ a]. *)
 val reflexivity : 'a. 'a -> ('a, 'a) t
 
 (** {4 Symmetry} *)
