@@ -18,12 +18,12 @@ type 'a t = 'a -> False.t
     it is not raining. *)
 val reciprocal : 'a 'b. ('a -> 'b) -> 'b t -> 'a t
 
-(** [intro_double_not a] states that if we have [a], then
-    we can conclude [¬¬a] (read: not not [a]). *)
-val intro_double_not : 'a. 'a -> 'a t t
+(** [double_introduction a] states that if we have [a], then we
+    can conclude [¬¬a] (read: not not [a]). *)
+val double_introduction : 'a. 'a -> 'a t t
 
 val ( ~~ ) : 'a. 'a -> 'a t t
 
-(** [elim_double_not a] states that if we know that the
+(** [double_elimination a] states that if we know that the
     negation of [a] is false, then we can conclude [a]. *)
-val elim_double_not : 'a. 'a t t -> 'a
+val double_elimination : 'a. 'a t t -> 'a
