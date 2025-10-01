@@ -4,6 +4,14 @@ type (_, _) t =
 
 let left : type a b. a -> (a, b) t = fun a -> Intro_left a
 let right : type a b. b -> (a, b) t = fun b -> Intro_right b
+
+let elimination
+  : type a b c. (a -> c) -> (b -> c) -> (a, b) t -> c
+  =
+  fun left_elimination right_elimination -> function
+  | Intro_left a -> left_elimination a
+  | Intro_right b -> right_elimination b
+
 let reflexivity : type a. a -> (a, a) t = fun a -> Intro_left a
 
 let symmetry : type a b. (a, b) t -> (b, a) t = function

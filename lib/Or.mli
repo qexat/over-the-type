@@ -22,6 +22,14 @@ val left : 'a 'b. 'a -> ('a, 'b) t
     proof of [b], then we can conclude [a ∨ b]. *)
 val right : 'a 'b. 'b -> ('a, 'b) t
 
+(** {2 Elimination rule} *)
+
+(** [elimination] states that if [a] implies [c] and [b] also
+    implies [c], and we have [a ∨ b], then we can conclude [c]. *)
+val elimination
+  : 'a 'b 'c.
+  ('a -> 'c) -> ('b -> 'c) -> ('a, 'b) t -> 'c
+
 (** {2 Properties} *)
 
 (** {3 As a tolerance relation} *)
