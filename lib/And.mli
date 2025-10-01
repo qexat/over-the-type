@@ -3,25 +3,25 @@
 (** [And] represents the conjunction, denoted [∧]. *)
 
 (** The conjunction has two type parameters [a] and [b], with
-    one constructor {!Conjunction} that can only be introduced
-    if {i both} [a] and [b] have a proof. *)
+    one constructor {!Both} that can only be introduced if
+    {i both} [a] and [b] have a proof. *)
 
 (** [t] is the conjunction type. *)
-type (_, _) t = Conjunction : 'a 'b. ('a * 'b) -> ('a, 'b) t
+type (_, _) t = Both : 'a 'b. ('a * 'b) -> ('a, 'b) t
 
 (** {2 Introduction and elimination rules} *)
 
-(** [both] states that if we have both [a] and [b], then we can
-    conclude [a ∧ b]. *)
-val both : 'a 'b. 'a -> 'b -> ('a, 'b) t
+(** [introduction] states that if we have both [a] and [b],
+    then we can conclude [a ∧ b]. *)
+val introduction : 'a 'b. 'a -> 'b -> ('a, 'b) t
 
 (** [left] states that if we have [a ∧ b], then we can conclude
     [a]. *)
-val left : 'a 'b. ('a, 'b) t -> 'a
+val elimination_left : 'a 'b. ('a, 'b) t -> 'a
 
 (** [right] states that if we have [a ∧ b], then we can
     conclude [b]. *)
-val right : 'a 'b. ('a, 'b) t -> 'b
+val elimination_right : 'a 'b. ('a, 'b) t -> 'b
 
 (** {2 Properties} *)
 
