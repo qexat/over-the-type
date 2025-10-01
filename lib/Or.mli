@@ -3,24 +3,24 @@
 (** [Or] represents disjunction, denoted [∨]. *)
 
 (** The disjunction has two type parameters [a] and [b], with
-    two constructors {!Intro_left} and {!Intro_right} which
-    allow to construct a proof of [a ∨ b] either with a proof
-    of [a] or a proof of [b] respectively. *)
+    two constructors {!Left} and {!Right} which allow to
+    construct a proof of [a ∨ b] either with a proof of [a] or
+    a proof of [b] respectively. *)
 
 (** [t] is the disjunction type. *)
 type (_, _) t =
-  | Intro_left : 'a 'b. 'a -> ('a, 'b) t
-  | Intro_right : 'a 'b. 'b -> ('a, 'b) t
+  | Left : 'a 'b. 'a -> ('a, 'b) t
+  | Right : 'a 'b. 'b -> ('a, 'b) t
 
 (** {2 Introduction rules} *)
 
-(** [left] states that no matter what [b] is, if we have a
-    proof of [a], then we can conclude [a ∨ b]. *)
-val left : 'a 'b. 'a -> ('a, 'b) t
+(** [introduction_left] states that no matter what [b] is, if
+    we have a proof of [a], then we can conclude [a ∨ b]. *)
+val introduction_left : 'a 'b. 'a -> ('a, 'b) t
 
-(** [right] states that no matter what [a] is, if we have a
-    proof of [b], then we can conclude [a ∨ b]. *)
-val right : 'a 'b. 'b -> ('a, 'b) t
+(** [introduction_right] states that no matter what [a] is, if
+    we have a proof of [b], then we can conclude [a ∨ b]. *)
+val introduction_right : 'a 'b. 'b -> ('a, 'b) t
 
 (** {2 Elimination rule} *)
 
