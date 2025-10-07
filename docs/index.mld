@@ -18,6 +18,7 @@ Over The Type explores the confines of OCaml's powerful type system with a logic
 - {{!Over_the_type.True}[True]}
 - {{!Over_the_type.Not}[Not]}
 - {{!Over_the_type.And}[And]}
+- {{!Over_the_type.And_then}[And_then]}
 - {{!Over_the_type.Or}[Or]}
 - {{!Over_the_type.Eq}[Eq]}
 - {{!Over_the_type.Neq}[Neq]}
