@@ -15,12 +15,12 @@ type (_, _) t = Both : 'a 'b. ('a * 'b) -> ('a, 'b) t
     then we can conclude [a ∧ b]. *)
 val introduction : 'a 'b. 'a -> 'b -> ('a, 'b) t
 
-(** [left] states that if we have [a ∧ b], then we can conclude
-    [a]. *)
+(** [elimination_left] states that if we have [a ∧ b], then we
+    can conclude [a]. *)
 val elimination_left : 'a 'b. ('a, 'b) t -> 'a
 
-(** [right] states that if we have [a ∧ b], then we can
-    conclude [b]. *)
+(** [elimination_right] states that if we have [a ∧ b], then we
+    can conclude [b]. *)
 val elimination_right : 'a 'b. ('a, 'b) t -> 'b
 
 (** {2 Properties} *)
