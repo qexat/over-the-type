@@ -1,12 +1,13 @@
 (** {1 And then} *)
 
-(** [And_then] represents the ordered dependent conjunction.
+(** [And_then] represents a pair where the right handside
+    depends on the left.
 
     {b Note:} To my knowledge, this logical operator does not
     have an "official" (or agreed upon) symbol, but I will use
     [&>] for the rest of the documentation. *)
 
-(** [t] is the ordered (dependent) conjunction type. *)
+(** [t] is the ordered (dependent) pair type. *)
 type (_, _) t =
   | And_then : 'a 'b. ('a * ('a -> 'b)) -> ('a, 'b) t
 
@@ -86,18 +87,16 @@ val associativity
     however, care must be taken as it is not a loseless
     transformation. *)
 
-(** [order] converts a normal conjunction to an ordered
-    (dependent) conjunction. *)
+(** [order] converts a conjunction to an ordered pair. *)
 val order : 'a 'b. ('a, 'b) And.t -> ('a, 'b) t
 
-(** [unorder] converts an ordered conjunction to a normal
-    conjunction. *)
+(** [unorder] converts an ordered pair to a conjunction. *)
 val unorder : 'a 'b. ('a, 'b) t -> ('a, 'b) And.t
 
 (** {3 Currying, uncurrying}
 
-    Since [a &> b] remains a conjunction (even ordered), it
-    preserves some of the properties of [a ∧ b], namely its
+    Since [a &> b] is a pair (which resembles a conjunction),
+    it preserves some of the properties of [a ∧ b], namely its
     relation with [→] with respect to currying/uncurrying. *)
 
 (** [curry_binary] states that we can curry [(a &> b) → c] to
@@ -123,5 +122,5 @@ val uncurry_binary
     selective, and even less of a monad. *)
 
 (** [map f a_and_then_b] applies [f] to the right handside of
-    the ordered conjunction [a_and_then_b]. *)
+    the ordered pair [a_and_then_b]. *)
 val map : 'a 'b 'c. ('b -> 'c) -> ('a, 'b) t -> ('a, 'c) t
