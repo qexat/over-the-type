@@ -89,6 +89,7 @@ val associativity
 
 (** [order] converts a conjunction to an ordered pair. *)
 val order : 'a 'b. ('a, 'b) And.t -> ('a, 'b) t
+[@@alert unsafe "this operation is lossy and unsafe"]
 
 (** [unorder] converts an ordered pair to a conjunction. *)
 val unorder : 'a 'b. ('a, 'b) t -> ('a, 'b) And.t
