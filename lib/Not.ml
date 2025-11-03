@@ -10,3 +10,11 @@ let ( ~~ ) = double_introduction
    constructively, as it requires "undoing" function
    application, thus it is an axiom *)
 external double_elimination : 'a. 'a t t -> 'a = "%identity"
+
+let cocontrapositive : type a b. (b t -> a t) -> a -> b =
+  fun not_b_implies_not_a a ->
+  let not_not_a = double_introduction a in
+  let not_not_b =
+    contrapositive not_b_implies_not_a not_not_a
+  in
+  double_elimination not_not_b

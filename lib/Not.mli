@@ -18,6 +18,9 @@ type 'a t = 'a -> False.t
     it is not raining. *)
 val contrapositive : 'a 'b. ('a -> 'b) -> 'b t -> 'a t
 
+(** [cocontrapositive] is the converse of {!contrapositive}. *)
+val cocontrapositive : 'a 'b. ('b t -> 'a t) -> 'a -> 'b
+
 (** [double_introduction a] states that if we have [a], then we
     can conclude [¬¬a] (read: not not [a]). *)
 val double_introduction : 'a. 'a -> 'a t t
